@@ -26,9 +26,11 @@ This project is a Smart Agricultural Advisory Application designed for Kyera Agr
 ## Setup Instructions
 
 ### 1. Database Setup
-1. Import the database schema:
+1. Ensure your database server (MySQL or MariaDB) is running.
+2. Import the database schema:
    ```bash
-   mysql -u root -p < database/schema.sql
+   # On Kali/Linux, you might need sudo
+   sudo mysql -u root < database/schema.sql
    ```
 
 ### 2. Backend Setup
