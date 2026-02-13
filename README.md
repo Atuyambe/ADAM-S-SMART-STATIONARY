@@ -1,68 +1,53 @@
-# Smart Agricultural Advisory Application
+# Smart Agricultural Advisory Application (Unified System)
 
-This project is a Smart Agricultural Advisory Application designed for Kyera Agricultural Farm in Mbarara District, Uganda. It integrates localized weather forecasts with predictive pest and disease management advisories to enable preventive decision-making among farmers.
+This project is a **Unified Smart Agricultural Advisory Application** designed for Kyera Agricultural Farm. It combines a Web Dashboard for smartphone users and an SMS logic engine for feature phone users into a single Python application.
 
 ## Project Structure
 
-- `proposal.tex`: The research proposal document (LaTeX format).
-- `backend/`: PHP REST API and Rule-based Advisory Engine.
-  - `config.php`: Configuration for database and external APIs.
-  - `correlation.php`: Core logic for rule-based weather-pest correlation.
-  - `index.php`: API endpoints.
-- `mobile/`: Flutter-based mobile application.
-  - `lib/main.dart`: Main application entry and dashboard UI.
-  - `pubspec.yaml`: Flutter dependencies.
-- `database/`: Database schema and initial data.
-  - `schema.sql`: SQL script to set up the database.
+- `unified_app/`: The core Python application.
+  - `app.py`: Flask application handling logic, database, and endpoints.
+  - `templates/index.html`: Web Dashboard UI.
+  - `kyera_farm.db`: SQLite database (auto-generated).
+- `proposal.tex`: The research proposal document (LaTeX).
+- `database/`: (Legacy) Previous SQL schema.
+- `backend/`, `mobile/`: (Legacy) Previous multi-scaffold components.
 
 ## Prerequisites
 
-- **Backend**: PHP 7.4+ and MySQL.
-- **Mobile**: Flutter SDK.
-- **APIs**:
-  - [OpenWeatherMap API Key](https://openweathermap.org/api)
-  - [Africa's Talking API Key](https://africastalking.com/) (for SMS)
+- Python 3.x
+- Flask
+- Requests
 
-## Setup Instructions
+## Setup Instructions (Kali Linux / Ubuntu)
 
-### 1. Database Setup
-1. Ensure your database server (MySQL or MariaDB) is running.
-2. Import the database schema:
+1. **Navigate to the app directory**:
    ```bash
-   # On Kali/Linux, you might need sudo
-   sudo mysql -u root < database/schema.sql
+   cd "unified_app"
    ```
 
-### 2. Backend Setup
-1. Move the `backend` folder to your web server (e.g., `/var/www/html/` or use PHP's built-in server).
-2. Edit `backend/config.php` and provide your database credentials and API keys.
-3. Start the server:
+2. **Install dependencies**:
    ```bash
-   cd backend
-   php -S localhost:8000
+   pip install flask requests
    ```
 
-### 3. Mobile App Setup
-1. Navigate to the `mobile` directory:
+3. **Run the application**:
    ```bash
-   cd mobile
+   python3 app.py
    ```
-2. Fetch dependencies:
-   ```bash
-   flutter pub get
-   ```
-3. Run the application:
-   ```bash
-   flutter run
-   ```
+   The system will automatically initialize the database on the first run.
 
-## Core Features implemented
-- **Rule-based Advisory Engine**: Logic that takes weather data (temperature, humidity, rainfall) and compares it against expert-validated pest outbreak thresholds.
-- **REST API**: Endpoints for weather data and risk assessment.
-- **Dashboard**: A Flutter-based UI that displays current weather and preventive alerts based on the Correlation Engine's analysis.
+4. **Access the Dashboard**:
+   Open your browser and go to: `http://127.0.0.1:5000`
 
-## Roadmap
-1. Integrate real-time weather from OpenWeatherMap API.
-2. Implement SMS notification system using Africa's Talking API.
-3. Add a dashboard for extension officers to manage correlation rules.
-4. Improve rule-based advisory thresholds based on expert feedback and field data from Kyera Farm.
+## Testing the SMS Logic
+You can simulate an incoming SMS from a feature phone user by using `curl` in your terminal:
+
+```bash
+curl -X POST -d "from=+256770000000&text=JOIN Adam" http://127.0.0.1:5000/sms/incoming
+```
+After running this, refresh the dashboard to see "Adam" added to the registered farmers list.
+
+## Core Features
+- **Unified Engine**: A single logic source for weather data and pest risk rules.
+- **Hybrid Alerting**: Supports both visual alerts (Web) and text-based alerts (SMS).
+- **Rule-based Logic**: Expert-validated thresholds trigger preventive advisories.
