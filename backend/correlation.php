@@ -3,10 +3,13 @@ require_once 'config.php';
 
 class CorrelationEngine {
     /**
-     * Correlates weather data with pest/disease rules.
+     * Rule-based Advisory Engine
+     *
+     * Uses expert-validated threshold logic to correlate weather data with pest/disease risks.
+     * Example logic: IF humidity > threshold AND temp > threshold THEN Risk = High.
      *
      * @param array $weatherData Current and forecast weather
-     * @param array $rules Pest risk rules from database
+     * @param array $rules Expert-validated pest risk rules from database
      * @return array Detected risks
      */
     public function analyzeRisks($weatherData, $rules) {

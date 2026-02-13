@@ -5,9 +5,9 @@ This project is a Smart Agricultural Advisory Application designed for Kyera Agr
 ## Project Structure
 
 - `proposal.tex`: The research proposal document (LaTeX format).
-- `backend/`: PHP REST API and Correlation Engine.
+- `backend/`: PHP REST API and Rule-based Advisory Engine.
   - `config.php`: Configuration for database and external APIs.
-  - `correlation.php`: Core logic for weather-pest correlation.
+  - `correlation.php`: Core logic for rule-based weather-pest correlation.
   - `index.php`: API endpoints.
 - `mobile/`: Flutter-based mobile application.
   - `lib/main.dart`: Main application entry and dashboard UI.
@@ -57,7 +57,7 @@ This project is a Smart Agricultural Advisory Application designed for Kyera Agr
    ```
 
 ## Core Features implemented
-- **Correlation Engine**: Logic that takes weather data (temperature, humidity, rainfall) and compares it against pest outbreak rules.
+- **Rule-based Advisory Engine**: Logic that takes weather data (temperature, humidity, rainfall) and compares it against expert-validated pest outbreak thresholds.
 - **REST API**: Endpoints for weather data and risk assessment.
 - **Dashboard**: A Flutter-based UI that displays current weather and preventive alerts based on the Correlation Engine's analysis.
 
@@ -65,4 +65,4 @@ This project is a Smart Agricultural Advisory Application designed for Kyera Agr
 1. Integrate real-time weather from OpenWeatherMap API.
 2. Implement SMS notification system using Africa's Talking API.
 3. Add a dashboard for extension officers to manage correlation rules.
-4. Improve pest risk models based on historical field data from Kyera Farm.
+4. Improve rule-based advisory thresholds based on expert feedback and field data from Kyera Farm.
