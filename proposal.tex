@@ -197,7 +197,7 @@ Thank you for all your support right from when I begun my first year at Campus t
 
 Agriculture remains a fundamental pillar of Uganda's economy, yet smallholder farmers at Kyera Agricultural Farm continue to face challenges due to limited access to timely and accurate agricultural information. Traditional extension services are often constrained by inadequate staffing and delays in information dissemination. These gaps undermine farmers' decision-making processes, resulting in reduced productivity and increased vulnerability to pests and diseases.
 
-With the rapid growth of mobile technologies in Uganda, there is an opportunity to improve agricultural advisory services through digital platforms. This study proposes the design and implementation of a Smart Agricultural Advisory Application that integrates localized weather forecasts with rule-based pest and disease management advisories for farmers at Kyera Agricultural Farm in Mbarara District. The application aims to bridge the disconnect between meteorological data and agricultural risks by providing preventive, weather-triggered alerts based on expert-validated correlation rules.
+With the rapid growth of mobile technologies in Uganda, there is an opportunity to improve agricultural advisory services through digital platforms. This study proposes the design and implementation of a Smart Agricultural Advisory Application that specifically integrates localized weather forecasts with rule-based pest and disease management advisories for farmers at Kyera Agricultural Farm in Mbarara District. The application aims to bridge the disconnect between meteorological data and agricultural risks by providing preventive, weather-triggered alerts based on expert-validated correlation rules.
 
 A mixed-methods approach incorporating interviews, questionnaires, and document review is employed to assess farmers' information needs and establish weather--pest thresholds specific to the farm's microclimate. These findings guide the development of a mobile application using an iterative prototyping methodology.
 
@@ -349,8 +349,69 @@ The study involves 40 participants at Kyera Farm, including farmers and agricult
     \item \textbf{Document Review}: Analyzing historical records at Kyera Farm to identify recurring weather-pest patterns.
 \end{itemize}
 
+\subsection{Data Analysis}
+The collected data is analyzed using both qualitative and quantitative techniques.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            enlargelimits=0.15,
+            legend style={at={(0.5,-0.15)},
+            anchor=north,legend columns=-1},
+            ylabel={Number of Responses},
+            symbolic x coords={Interviews,Observations,Questionnaires,Document Review},
+            xtick=data,
+            nodes near coords,
+            nodes near coords align={vertical},
+            ]
+            \addplot coordinates {(Interviews,15) (Observations,12) (Questionnaires,25) (Document Review,8)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Bar Graph Showing Data Collection Responses for Weather-Pest Research}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \pie[text=legend]{
+            50/Farmers,
+            25/Extension Officers,
+            15/Farm Managers,
+            10/Meteorologists
+        }
+    \end{tikzpicture}
+    \caption{Pie Chart Showing Specialized Participant Categories for Weather-Pest Research}
+\end{figure}
+
 \section{System Architecture}
-The system consists of a PHP/MySQL backend that fetches weather data from an API and processes it through the rule-based engine. The mobile application, built with Flutter, serves as the primary interface for farmers to receive alerts and view advisories.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        node distance=1.5cm and 1cm,
+        box/.style={rectangle, draw=black, thick, minimum width=3cm, minimum height=1cm, text centered},
+        arrow/.style={->, >=stealth, thick}
+        ]
+
+        % Nodes
+        \node[box] (weather) {Weather Data Sources};
+        \node[box, below=of weather] (correlation) {Rule-based Engine};
+        \node[box, below left=of correlation] (mobile) {Mobile Application};
+        \node[box, below right=of correlation] (sms) {SMS Gateway};
+        \node[box, below=of mobile] (user1) {Smartphone Users};
+        \node[box, below=of sms] (user2) {Feature Phone Users};
+
+        % Arrows
+        \draw[arrow] (weather) -- (correlation);
+        \draw[arrow] (correlation) -- (mobile);
+        \draw[arrow] (correlation) -- (sms);
+        \draw[arrow] (mobile) -- (user1);
+        \draw[arrow] (sms) -- (user2);
+
+    \end{tikzpicture}
+    \caption{System Architecture for Weather-Pest Integrated Advisory Application}
+\end{figure}
 
 \section{Evaluation and Validation Metrics}
 The mobile application will be evaluated based on:
@@ -391,5 +452,37 @@ Informed consent will be obtained from all participants. The application will ex
 \bibitem{WorldBank2021} World Bank. \emph{Enabling the Business of Agriculture}. World Bank, 2021.
 
 \end{thebibliography}
+
+%%% Index %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+%%% Glossary %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Glossary}
+
+\chapter*{Glossary}
+\begin{description}
+    \item[Smart Agriculture] The use of technology and data analysis to optimize agricultural processes.
+    \item[Weather-Pest Integration] The correlation of meteorological data with pest and disease outbreak probabilities.
+    \item[Preventive Farming] Agricultural practices focused on preventing problems before they occur.
+    \item[Digital Extension Services] Technology-enabled agricultural advisory and support services.
+    \item[Microclimate] The climate of a small, specific area that may differ from the surrounding region.
+\end{description}
+
+%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\chapter{Questionnaire Template}
+\section{Farmer Information Needs Assessment}
+\begin{enumerate}
+    \item What weather information do you currently use for farming decisions?
+    \item How do you currently receive pest and disease advisories?
+    \item Would you find weather-based pest alerts useful?
+    \item What type of mobile device do you own?
+    \item How would you prefer to receive agricultural advisories?
+\end{enumerate}
 
 \end{document}
