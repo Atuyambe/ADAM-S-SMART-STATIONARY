@@ -311,6 +311,27 @@ mFarms and iCow demonstrate the effectiveness of SMS and mobile apps in reaching
 \subsection{Rule-Based Systems in Agriculture}
 Peer-reviewed research has shown that rule-based systems, which utilize expert-defined thresholds, are effective in delivering agricultural advice in regions where large historical datasets for machine learning are unavailable \cite{Saini2012}. These systems operationalize agrometeorological principles into "IF-THEN" logic that can be easily implemented in mobile applications.
 
+\section{Comparison of Reviewed Systems}
+\begin{table}[h]
+    \centering
+    \caption{Comparison of Existing Systems with Proposed Weather--Pest Mobile Application}
+    \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{System} & \textbf{Weather Component} & \textbf{Pest/Disease Component} & \textbf{Integration Approach} \\
+        \hline
+        EzyAgric (Uganda) & Limited or none & Generic advice & No integration \\
+        \hline
+        Weather Apps & Detailed forecasts & None & No agricultural interpretation \\
+        \hline
+        PlantVillage Nuru & None & Reactive identification & No preventive capability \\
+        \hline
+        mFarms (Ghana) & Basic weather data & Generic SMS alerts & Fragmented, not correlated \\
+        \hline
+        \textbf{Proposed App} & \textbf{Localized forecasts} & \textbf{Rule-based advisories} & \textbf{Weather-triggered alerts} \\
+        \hline
+    \end{tabular}
+\end{table}
+
 \section{Research Gap}
 While significant progress has been made in digital agriculture, a specific gap remains in the implementation of integrated weather--pest advisory engines accessible to Ugandan smallholders. Most current systems are either reactive or treat weather and pest advice as disconnected information streams. This project addresses the "algorithmic implementation gap" by developing a rule-based engine that correlates forecasts with expert-validated risk thresholds.
 
