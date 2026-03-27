@@ -1,0 +1,509 @@
+\documentclass[12pt]{report}
+
+%%% Preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{geometry}
+\geometry{left=1.2in, right=0.9in, top=0.5in, bottom=1.5in}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgf-pie}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta}
+
+%%% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{url}
+\usepackage[numbers]{natbib}  % Using natbib for better citation handling
+\usepackage{textcomp}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{makeidx}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{courier}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{bookmark}
+\usepackage{subcaption}
+\usepackage{array}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={Smart Agricultural Advisory Application for Kyera Agricultural Farm, Mbarara District},
+    pdfauthor={ATUYAMBE ADAM},
+    pdfsubject={Bachelor's Degree Research Proposal in Information Technology},
+    pdfkeywords={Smart agriculture, mobile advisory system, weather-pest integration, preventive farming, Uganda},
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+}
+
+% Listings setup
+\definecolor{darkgray}{rgb}{0.95,0.95,0.95}
+\lstset{
+    language=XML,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{red}\bfseries,
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{blue},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{darkgray}
+}
+
+% Float settings
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
+\setcounter{topnumber}{10}
+\setcounter{bottomnumber}{10}
+\setcounter{totalnumber}{10}
+
+% Document formatting
+\pagestyle{plain}
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+\setstretch{1.5} % Good for academic reports
+
+% Theorem environments
+\newtheorem{example}{Example}
+% amsthm already provides a proof environment
+
+\makeindex
+
+%%% Document Body %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%% Title Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+
+    {\Huge\bfseries SMART AGRICULTURAL ADVISORY APPLICATION\\}
+    \vspace{0.5cm}
+    {\Large For Kyera Agricultural Farm, Mbarara District\\}
+
+    \vspace{2cm}
+
+    {\Large A Research Proposal\\}
+    \vspace{0.5cm}
+    {\Large Submitted in Partial Fulfillment of the Requirements for the\\}
+    {\Large Award of Bachelor of Science in Information Technology\\}
+
+    \vspace{2cm}
+
+    {\Large By\\}
+    {\Large ADAM ATUYAMBE\\}
+    {\large BSc Information Technology Candidate\\}
+
+    \vspace{2cm}
+
+    {\Large University of Saint Joseph Mbarara\\}
+    {\Large Faculty of Education and Sciences\\}
+
+    \vspace{2cm}
+
+    {\Large Date: 26TH NOVEMBER 2025\\}
+
+    \vfill
+\end{titlepage}
+
+%%% Approval Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\vspace*{2cm}
+
+\begin{center}
+    {\Large\bfseries APPROVAL\\}
+\end{center}
+
+\vspace{1cm}
+
+This research work culminating in this research proposal is conducted under my guidance and supervision.
+
+\vspace{2cm}
+
+\begin{center}
+\begin{tabular}{p{0.5\textwidth}}
+    \hline
+    \centering Supervisor's Signature \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{p{0.5\textwidth}}
+    \centering Mr. Daniel Zziwa \\
+    \centering Supervisor \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{p{0.5\textwidth}}
+    \centering Date: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \\
+\end{tabular}
+\end{center}
+
+\vfill
+
+%%% Acknowledgements %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\chapter*{Acknowledgements}
+
+First and foremost, I give all the glory and honor to the Almighty God for the gift of life, wisdom, and perseverance throughout my academic journey and during the development of this project titled "Smart Agricultural Advisory Application for Kyera Agricultural Farm, Mbarara District." His divine guidance has been my greatest source of strength and inspiration.
+
+I extend my sincere appreciation to my supervisor, Mr. Daniel Zziwa, for his invaluable guidance, continuous support, and encouragement throughout the research and system development process. His constructive feedback, mentorship, and expertise greatly contributed to the successful completion of this work.
+
+My deepest gratitude goes to the management and staff of Kyera Agricultural Farm for their cooperation and for providing the necessary data, insights, and field support that informed the design of this system. Your practical experiences and suggestions shaped the project into a real-world solution for farmers' information needs.
+
+I also wish to acknowledge University of Saint Joseph Mbarara, Faculty of Education and Sciences, for equipping me with the knowledge and technical skills that made this project possible. Special thanks go to my lecturers and classmates for their encouragement and teamwork spirit.
+
+I am forever thankful to my beloved parents Mr. Byaruhanga Adrian and Mrs. Kyomukama Jane, then my brothers for their endless love, prayers, and sacrifices that have brought me to this point.
+
+%%% Dedication %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\thispagestyle{empty}
+\chapter*{Dedication}
+
+To my beloved parents, Mr. Byaruhanga Adrian and Mrs. Kyomukama Jane, my Research Supervisor Mr. Daniel Zziwa and to my beloved brothers Nasasira Gideon, Nuwahere Gabriel, Nuwampaire Solomon and Nabimanya Innocent.
+
+Thank you for all your support right from when I begun my first year at Campus to offer a Bachelors degree of Science in Information Technology in 2023 to date. You are such a wonderful family to me. Your patience and guidance plus support has made me what I have become today. May the good Lord continue to bless us together for the rest of our lives.
+
+%%% Abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{4}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+Agriculture remains a fundamental pillar of Uganda's economy, yet smallholder farmers at Kyera Agricultural Farm continue to face challenges due to limited access to timely and accurate agricultural information. Traditional extension services are often constrained by inadequate staffing and delays in information dissemination. These gaps undermine farmers' decision-making processes, resulting in reduced productivity and increased vulnerability to pests and diseases.
+
+With the rapid growth of mobile technologies in Uganda, there is an opportunity to improve agricultural advisory services through digital platforms. This study proposes the design and implementation of a Smart Agricultural Advisory Application that specifically integrates localized weather forecasts with rule-based pest and disease management advisories for farmers at Kyera Agricultural Farm in Mbarara District. The application aims to bridge the disconnect between meteorological data and agricultural risks by providing preventive, weather-triggered alerts based on expert-validated correlation rules.
+
+A mixed-methods approach incorporating interviews, questionnaires, and document review is employed to assess farmers' information needs and establish weather--pest thresholds specific to the farm's microclimate. These findings guide the development of a mobile application using an iterative prototyping methodology.
+
+The expected outcome is a functional, user-friendly mobile application that enhances farmers' preventive decision-making and crop protection outcomes. By addressing information fragmentation through focused weather--pest integration, this pilot project contributes to modernizing agricultural advisory delivery at the farm level.
+
+\bigskip
+\textbf{Keywords:} Smart agriculture, mobile application, weather-pest integration, preventive farming, rule-based advisory, Uganda
+
+%%% Table of Contents %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\tableofcontents
+
+%%% List of Figures %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+%%% List of Tables %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+%%% Main Content %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+\label{chapter:introduction}
+
+\section{Introduction and Background of the Study}
+Agriculture remains the backbone of Uganda's economy, contributing approximately 24\% of GDP and employing roughly 68\% of the workforce \cite{UBOS2023}. Despite this importance, production growth has often lagged behind population growth, raising concerns about food security and smallholder productivity \cite{AgriculturalGrowth2022}. National indices show modest improvements, but yield gaps persist for many farmers due to reactive management of pests and diseases \cite{FAO2022}.
+
+Simultaneously, Uganda has seen a rapid increase in mobile and Internet penetration, with mobile subscriptions reaching roughly 76 per 100 people in 2023 \cite{ITU2023}. This digital growth provides a feasible channel for delivering agricultural information directly to farmers. Current digital advisory platforms in the region, however, often provide fragmented information, treating weather and pest management as separate concerns. This fragmentation misses the correlation between weather patterns and pest outbreaks, which causes preventable crop losses \cite{MAAIF2020}.
+
+This research seeks to design and implement a Smart Agricultural Advisory Application using Kyera Agricultural Farm in Mbarara District as a case study. Kyera serves as a practical environment to pilot a mobile application focused on integrating weather-pest advisories through a rule-based engine.
+
+\section{Problem Statement}
+Smallholder farmers at Kyera Agricultural Farm rely on timely information to make productive decisions. Historically, they have depended on traditional advisory channels such as community meetings and occasional extension visits, which are often limited in frequency and precision \cite{UBOS2023}. While mobile technology adoption is rising, current digital advisory systems available to Ugandan farmers remain poorly integrated. Farmers often receive weather forecasts through one channel and pest advice through another, without a clear connection between the two \cite{WorldBank2022}.
+
+This lack of integration leads to reactive rather than preventive pest management. Extension services face logistical challenges that prevent them from reaching all farmers with real-time, weather-informed advice \cite{MAAIF2019}. Consequently, farmers frequently receive alerts too late to take effective preventive action, resulting in persistent crop losses and income instability. Ideally, farmers should have access to an integrated mobile application that correlates weather conditions with pest management recommendations.
+
+The core problem addressed by this study is the absence of a specialized mobile application that links localized weather forecasts with expert-validated pest/disease thresholds for farmers at Kyera Farm. This research explores how mobile technology can bridge this information gap through a rule-based advisory engine, enabling timely preventive actions and improving productivity at the farm level.
+
+\section{Objectives of the Study}
+\subsection{General Objective}
+To design and implement a Smart Agricultural Advisory Application that integrates localized weather forecasts with rule-based pest and disease management advisories to enable preventive decision-making among farmers.
+
+\subsection{Specific Objectives}
+\begin{enumerate}
+    \item To identify and document expert-validated weather--pest correlation rules relevant to the crops and microclimate of Kyera Farm.
+    \item To design and develop a mobile application that integrates weather forecasts with a rule-based advisory engine for pest/disease management.
+    \item To test and validate the functional performance and user-acceptance of the mobile application with farmers at Kyera Agricultural Farm.
+\end{enumerate}
+
+\section{Research Questions}
+\begin{enumerate}
+    \item What are the expert-validated weather--pest correlation rules specific to the crops and microclimate of Kyera Agricultural Farm?
+    \item How can these rules be effectively integrated into a mobile application to trigger preventive advisories?
+    \item How does the use of this mobile application influence the preventive decision-making of farmers at Kyera Farm during the pilot period?
+\end{enumerate}
+
+\section{Justification of the Project}
+The agricultural sector in Uganda faces significant annual crop losses due to weather-exacerbated pest outbreaks. While digital tools exist, their impact is often limited by a fragmented approach to weather and pest data. The proposed mobile application addresses this gap by providing weather-triggered alerts based on expert knowledge, transforming meteorological data into actionable intelligence for smallholder farmers.
+
+By adopting a software-only design that leverages existing mobile infrastructure and public weather APIs, the project offers a low-cost, immediately deployable solution. This approach addresses the resource constraints common in Ugandan agriculture and provides a scalable model for other farming communities.
+
+\subsection{Practical Impact for Farmers}
+The application aims to shift farmers from reactive to preventive management, potentially reducing crop losses by providing timely alerts. This can lead to reduced production costs through optimized pesticide use and improved environmental sustainability.
+
+\subsection{Technological Innovation}
+The project focuses on a high-impact integration—weather-pest thresholds—using an accessible, equipment-free design. This demonstrates how precision agriculture benefits can be delivered without expensive hardware like IoT sensors.
+
+\subsection{Research Contribution}
+The study contributes to the documentation of weather-pest rules specific to local agroecological conditions and provides methodological insights into the development of rule-based digital extension tools in resource-constrained contexts.
+
+\section{Scope of the Study}
+The study is geographically limited to Kyera Agricultural Farm in Mbarara District, Uganda. The thematic scope is focused on integrating localized weather forecasts with rule-based pest and disease management advisories for key crops such as maize, beans, and bananas.
+
+The application will be developed for smartphones (Android) with SMS integration for basic phone users. Functionally, it covers weather data fetching, rule-based risk assessment, and alert generation. The study will be conducted over a single cropping season. Areas such as market pricing, general crop agronomy, and IoT hardware are outside the scope of this research.
+
+\section{Technology Infrastructure and Requirements}
+\label{sec:tech-infrastructure}
+
+The application is designed as a software-only solution, utilizing existing infrastructure to ensure feasibility:
+\begin{itemize}
+    \item Farmer Mobile Phones (Smartphones and feature phones)
+    \item Standard Cellular Networks
+    \item Public Weather APIs (e.g., OpenWeatherMap)
+    \item Cloud Hosting for the backend API
+\end{itemize}
+The system explicitly excludes the use of physical IoT sensors or on-farm weather stations, focusing instead on data-driven integration via software.
+
+%%% Literature Review %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Literature Review}
+\label{chapter:literature-review}
+
+\section{Introduction}
+This chapter reviews existing digital agricultural advisory systems and established research on weather-pest correlations. It examines the strengths and limitations of current platforms and identifies the gap this project seeks to fill.
+
+\section{Review of Related Systems}
+
+\subsection{EzyAgric (Uganda)}
+EzyAgric provides comprehensive advisory services and farm management tools in Uganda \cite{MAAIF2020}. While it excels in data collection, there is a recognized opportunity to deepen the systematic integration between real-time weather forecasts and specific pest risk thresholds for preventive alerting.
+
+\subsection{PlantVillage Nuru (Global)}
+PlantVillage Nuru uses AI to diagnose crop diseases through smartphone cameras \cite{FAO2022}. While highly effective for identification, its current application is primarily reactive—diagnosing problems after they appear—rather than providing weather-based preventive alerts before an outbreak occurs.
+
+\subsection{mFarms (Ghana) and iCow (Kenya)}
+mFarms and iCow demonstrate the effectiveness of SMS and mobile apps in reaching smallholders \cite{FAO2022, WorldBank2021}. However, many such systems provide generic advisories that may not be dynamically triggered by localized weather-pest correlation rules.
+
+\subsection{Rule-Based Systems in Agriculture}
+Peer-reviewed research has shown that rule-based systems, which utilize expert-defined thresholds, are effective in delivering agricultural advice in regions where large historical datasets for machine learning are unavailable \cite{Saini2012}. These systems operationalize agrometeorological principles into "IF-THEN" logic that can be easily implemented in mobile applications.
+
+\section{Comparison of Reviewed Systems}
+\begin{table}[h]
+    \centering
+    \caption{Comparison of Existing Systems with Proposed Weather--Pest Mobile Application}
+    \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+        \hline
+        \textbf{System} & \textbf{Weather Component} & \textbf{Pest/Disease Component} & \textbf{Integration Approach} \\
+        \hline
+        EzyAgric (Uganda) & Limited or none & Generic advice & No integration \\
+        \hline
+        Weather Apps & Detailed forecasts & None & No agricultural interpretation \\
+        \hline
+        PlantVillage Nuru & None & Reactive identification & No preventive capability \\
+        \hline
+        mFarms (Ghana) & Basic weather data & Generic SMS alerts & Fragmented, not correlated \\
+        \hline
+        \textbf{Proposed App} & \textbf{Localized forecasts} & \textbf{Rule-based advisories} & \textbf{Weather-triggered alerts} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section{Research Gap}
+While significant progress has been made in digital agriculture, a specific gap remains in the implementation of integrated weather--pest advisory engines accessible to Ugandan smallholders. Most current systems are either reactive or treat weather and pest advice as disconnected information streams. This project addresses the "algorithmic implementation gap" by developing a rule-based engine that correlates forecasts with expert-validated risk thresholds.
+
+%%% Methodology %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Methodology}
+
+\section{Introduction}
+This chapter details the prototyping methodology used to develop the mobile application, the data collection methods for identifying correlation rules, and the evaluation framework.
+
+\section{Prototyping Methodology}
+An iterative prototyping methodology is used, allowing for continuous refinement based on user and expert feedback \cite{Lewis2019}.
+\begin{enumerate}
+    \item \textbf{Requirements Analysis}: Gathering expert-validated rules and farmer needs.
+    \item \textbf{Quick Design}: Designing the rule-based engine and mobile interface.
+    \item \textbf{Prototype Construction}: Building the initial mobile app and backend.
+    \item \textbf{User Evaluation}: Testing with farmers at Kyera Farm.
+    \item \textbf{Refining}: Updating rules and UI based on feedback.
+\end{enumerate}
+
+\section{Rule-Based Advisory Engine Definition}
+The application will utilize a **rule-based logic engine** derived from expert knowledge. Instead of complex statistical modeling, it will use threshold-based triggers. For example:
+\begin{itemize}
+    \item \textbf{Rule}: IF (Forecast Rainfall > 10mm) AND (Humidity > 75\%) FOR (3 consecutive days) THEN (Risk for BXW = High).
+    \item \textbf{Action}: Trigger preventive advisory SMS and app notification to farmers.
+\end{itemize}
+This approach ensures the application is transparent, manageable, and grounded in established agricultural science.
+
+\section{Data Collection and Sampling}
+\subsection{Study Population and Sampling}
+The study involves 40 participants at Kyera Farm, including farmers and agricultural experts. Purposive sampling is used to select experts for rule validation, while stratified sampling is used for farmers based on their primary crops.
+
+\subsection{Data Collection Methods}
+\begin{itemize}
+    \item \textbf{Interviews}: With extension officers to document pest thresholds.
+    \item \textbf{Questionnaires}: To assess farmer information needs and app usability.
+    \item \textbf{Document Review}: Analyzing historical records at Kyera Farm to identify recurring weather-pest patterns.
+\end{itemize}
+
+\subsection{Data Analysis}
+The collected data is analyzed using both qualitative and quantitative techniques.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            ybar,
+            enlargelimits=0.15,
+            legend style={at={(0.5,-0.15)},
+            anchor=north,legend columns=-1},
+            ylabel={Number of Responses},
+            symbolic x coords={Interviews,Observations,Questionnaires,Document Review},
+            xtick=data,
+            nodes near coords,
+            nodes near coords align={vertical},
+            ]
+            \addplot coordinates {(Interviews,15) (Observations,12) (Questionnaires,25) (Document Review,8)};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Bar Graph Showing Data Collection Responses for Weather-Pest Research}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \pie[text=legend]{
+            50/Farmers,
+            25/Extension Officers,
+            15/Farm Managers,
+            10/Meteorologists
+        }
+    \end{tikzpicture}
+    \caption{Pie Chart Showing Specialized Participant Categories for Weather-Pest Research}
+\end{figure}
+
+\section{System Architecture}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        node distance=1.5cm and 1cm,
+        box/.style={rectangle, draw=black, thick, minimum width=3cm, minimum height=1cm, text centered},
+        arrow/.style={->, >=stealth, thick}
+        ]
+
+        % Nodes
+        \node[box] (weather) {Weather Data Sources};
+        \node[box, below=of weather] (correlation) {Rule-based Engine};
+        \node[box, below left=of correlation] (mobile) {Mobile Application};
+        \node[box, below right=of correlation] (sms) {SMS Gateway};
+        \node[box, below=of mobile] (user1) {Smartphone Users};
+        \node[box, below=of sms] (user2) {Feature Phone Users};
+
+        % Arrows
+        \draw[arrow] (weather) -- (correlation);
+        \draw[arrow] (correlation) -- (mobile);
+        \draw[arrow] (correlation) -- (sms);
+        \draw[arrow] (mobile) -- (user1);
+        \draw[arrow] (sms) -- (user2);
+
+    \end{tikzpicture}
+    \caption{System Architecture for Weather-Pest Integrated Advisory Application}
+\end{figure}
+
+\section{Evaluation and Validation Metrics}
+The mobile application will be evaluated based on:
+\begin{itemize}
+    \item \textbf{Functional Performance}: Using metrics such as **Precision** (percentage of alerts that were relevant) and **Recall** (percentage of actual risk periods correctly identified).
+    \item \textbf{User Acceptance}: Measured through the System Usability Scale (SUS) during farmer testing.
+\end{itemize}
+If no outbreaks occur during the pilot season, validation will rely on "simulated risk" scenarios where farmers evaluate the clarity and perceived usefulness of alerts triggered by historical weather data.
+
+\section{Ethical Considerations}
+Informed consent will be obtained from all participants. The application will explicitly state that advisories are based on expert rules and are intended to support, not replace, professional agricultural advice.
+
+%%% Bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\begin{thebibliography}{99}
+
+\bibitem{UBOS2023} Uganda Bureau of Statistics. \emph{Statistical Abstract 2023}. UBOS, Kampala, Uganda, 2023.
+
+\bibitem{MAAIF2020} Ministry of Agriculture, Animal Industry and Fisheries. \emph{Agricultural Sector Strategic Plan 2020-2025}. MAAIF, Uganda, 2020.
+
+\bibitem{ITU2023} International Telecommunication Union. \emph{ICT Statistics 2023}. ITU, Geneva, 2023.
+
+\bibitem{FAO2022} Food and Agriculture Organization. \emph{State of Food and Agriculture 2022}. FAO, Rome, 2022.
+
+\bibitem{AgriculturalGrowth2022} Ministry of Agriculture, Animal Industry and Fisheries. \emph{Agricultural Growth Trends in Uganda}. MAAIF, 2022.
+
+\bibitem{WorldBank2022} World Bank. \emph{Digital Agriculture in Africa}. World Bank, Washington DC, 2022.
+
+\bibitem{MAAIF2019} Ministry of Agriculture, Animal Industry and Fisheries. \emph{Extension Policy Framework}. MAAIF, 2019.
+
+\bibitem{Saini2012} Saini, G.S. \emph{Rule-based Expert Systems in Agriculture}. \emph{International Journal of Computer Applications}, 47(11), 2012.
+
+\bibitem{Lewis2019} Lewis, J. P. \emph{Project Planning, Scheduling, and Control}. McGraw-Hill, 2019.
+
+\bibitem{WorldBank2021} World Bank. \emph{Enabling the Business of Agriculture}. World Bank, 2021.
+
+\end{thebibliography}
+
+%%% Index %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+%%% Glossary %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Glossary}
+
+\chapter*{Glossary}
+\begin{description}
+    \item[Smart Agriculture] The use of technology and data analysis to optimize agricultural processes.
+    \item[Weather-Pest Integration] The correlation of meteorological data with pest and disease outbreak probabilities.
+    \item[Preventive Farming] Agricultural practices focused on preventing problems before they occur.
+    \item[Digital Extension Services] Technology-enabled agricultural advisory and support services.
+    \item[Microclimate] The climate of a small, specific area that may differ from the surrounding region.
+\end{description}
+
+%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\chapter{Questionnaire Template}
+\section{Farmer Information Needs Assessment}
+\begin{enumerate}
+    \item What weather information do you currently use for farming decisions?
+    \item How do you currently receive pest and disease advisories?
+    \item Would you find weather-based pest alerts useful?
+    \item What type of mobile device do you own?
+    \item How would you prefer to receive agricultural advisories?
+\end{enumerate}
+
+\end{document}
